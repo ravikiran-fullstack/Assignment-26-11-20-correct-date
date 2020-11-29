@@ -1,6 +1,6 @@
 let inputData = data;
 console.log(inputData)
-let currentTen = 0;
+let currentTen = 1;
 
 function showData(index){
   currentTen = index;
