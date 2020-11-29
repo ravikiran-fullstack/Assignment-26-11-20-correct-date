@@ -1,6 +1,7 @@
 let inputData = data;
-console.log(inputData)
 let currentTen = 1;
+let previousSection = 1;
+populateOutputTable(1);
 
 function showData(index){
   currentTen = index;
@@ -22,7 +23,11 @@ function showNext(){
 }
 
 function populateOutputTable(index){
-
+  if(previousSection !== 0){
+    document.getElementById(previousSection).classList.remove('red');
+    document.getElementById(index).classList.add('red');
+  }
+  previousSection = index;
   document.getElementById('inputTable').classList.remove('position-abs');
   document.getElementById('inputTable').classList.add('position-rel');
   let tr = createDomElement('tr');
@@ -44,7 +49,6 @@ function populateOutputTable(index){
   outputTable.append(tr);
 
   for(let i = (index-1) * 10; i < index*10; i++){
-    console.log(inputData[i]);
     let tr = createDomElement('tr');
     let td1 = createDomElement('td');
     let td1Text = document.createTextNode(inputData[i].id);
